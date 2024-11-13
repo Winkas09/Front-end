@@ -1,0 +1,16 @@
+{
+  "name": "paskaitos",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "server" : "node server.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "casual": "^1.6.2",
+    "systeminformation": "^5.23.5"
+  }
+}
