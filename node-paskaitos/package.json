@@ -3,14 +3,17 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "server" : "node server.js"
+    "start": "nodemon index.js",
+    "server": "nodemon server.js",
+    "express": "nodemon express.js"
   },
   "author": "",
   "license": "ISC",
   "description": "",
   "dependencies": {
     "casual": "^1.6.2",
+    "express": "^4.21.1",
+    "nodemon": "^3.1.7",
     "systeminformation": "^5.23.5"
   }
 }
