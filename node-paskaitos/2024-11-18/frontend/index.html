@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Submit Name</title>
+</head>
+<body>
+    <h1>Submit Name</h1>
+    <form id="nameForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="surname">Surname:</label>
+        <input type="text" id="surname" name="surname" required>
+        <button type="submit">Submit</button>
+    </form>
+    <script>
+        document.getElementById('nameForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const name = document.getElementById('name').value;
+            const surname = document.getElementById('surname').value;
+
+            try {
+                const response = await fetch('http://localhost:3000/people', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ name, surname })
+                });
+
+                if (response.ok) {
+                    alert('Name submitted successfully');
+                    document.getElementById('nameForm').reset();
+                } else {
+                    const errorData = await response.json();
+                    alert(`Failed to submit name: ${errorData.message}`);
+                }
+            } catch (error) {
+                alert(`Failed to submit name: ${error.message}`);
+            }
+        });
+    </script>
+</body>
+</html>
