@@ -35,7 +35,8 @@ app.post ('/api/people', async (req, res) => {
     try {
 
         const newPeopleData = {
-            name: 'John Doe',
+            name: 'John',
+            surname: 'Doe',
             age: 25,
         }
         const connection = await client.connect()
