@@ -48,7 +48,7 @@ document.getElementById('fetchSortedAnimals').addEventListener('click', async ()
     const sortBy = document.getElementById('sortBy').value;
 
     try {
-        const response = await fetch(`http://localhost:3000/api/animals/${searchPhrase}/${sortBy}`);
+        const response = await fetch(`http://localhost:3000/api/animals/search?searchPhrase=${encodeURIComponent(searchPhrase)}&sortBy=${encodeURIComponent(sortBy)}`);
         const animals = await response.json();
         const sortedAnimalList = document.getElementById('sortedAnimalList');
         sortedAnimalList.innerHTML = '';
